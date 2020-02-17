@@ -69,7 +69,7 @@ public class HttpSourceJsonHandler implements HTTPSourceHandler {
         while ((line = reader.readLine()) != null) {
             buff.append(line);
         }
-        String replaceAll = buff.toString().replaceAll("\t", "");
+        String replaceAll = buff.toString().replaceAll("\t", "").replaceAll("    ", "");
 
         List<Event> newEvents = new ArrayList<Event>(10);
         newEvents.add(EventBuilder.withBody(replaceAll.getBytes()));
